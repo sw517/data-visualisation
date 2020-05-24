@@ -5,10 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    people: {},
   },
   mutations: {
+    SET_PEOPLE: (state, payload) => {
+      Object.assign(state.people, payload);
+    },
   },
   actions: {
+    setPeople: ({ commit }, payload) => {
+      commit('SET_PEOPLE', payload);
+    },
   },
   modules: {
   },
