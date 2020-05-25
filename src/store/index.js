@@ -9,7 +9,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_PEOPLE: (state, payload) => {
-      Object.assign(state.people, payload);
+      Vue.set(state, 'people', payload);
     },
   },
   actions: {
