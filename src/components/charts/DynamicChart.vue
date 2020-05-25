@@ -43,8 +43,12 @@ export default {
       this.updateChart();
     },
     datasets: {
-      handler() {
-        this.updateChart();
+      handler(newVal, oldVal) {
+        if (newVal.data && oldVal.data) {
+          if (newVal.data.datasets !== oldVal.data.datasets) {
+            this.updateChart();
+          }
+        }
       },
       deep: true,
     },
@@ -116,6 +120,8 @@ export default {
       if (!Object.keys(this.chart).length) return;
 
       this.setUpDatasets();
+      this.chart.data.labels = this.datasetsMerged.labels;
+      this.chart.data.datasets = this.datasetsMerged.datasets;
       this.chart.update();
     },
   },
