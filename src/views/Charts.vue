@@ -37,8 +37,15 @@
             ]"
           />
         </div>
-        <div class="px-4 mb-6">
-          <span class="text-xl">Age</span>
+        <div class="column">
+          <div class="flex justify-center">
+            <span class="text-xl mr-4">Age</span>
+            <div class="flex justify-center items-center">
+              <input id="group-age" v-model="groupAge" class="mr-2" type="checkbox" />
+              <label for="group-age">grouped</label>
+            </div>
+          </div>
+
           <DynamicChart
             v-if="ages && Object.keys(ages).length"
             class="px-4"
