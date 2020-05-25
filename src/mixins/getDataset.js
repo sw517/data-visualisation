@@ -4,13 +4,13 @@ import randomColor from '@/utils/randomColor';
 
 export default {
   methods: {
-    getDataset(key) {
-      if (!Object.values(this.people).length) return null;
+    getDataset(data, key) {
+      if (!data.length) return null;
       const counter = {};
       const dataset = {};
       const bgColors = [];
 
-      Object.values(this.people).forEach((person) => {
+      data.forEach((person) => {
         let keyValue = get(person, key);
         keyValue = capitalize(keyValue);
 

@@ -114,17 +114,17 @@ export default {
   computed: {
     ...mapGetters(['people']),
     dataExists() {
-      return Object.keys(this.people).length;
+      return this.people.length;
     },
     genders() {
       if (!this.dataExists) return null;
 
-      return this.getDataset('gender');
+      return this.getDataset(this.people, 'gender');
     },
     eyeColors() {
       if (!this.dataExists) return null;
 
-      return this.getDataset('eyeColor');
+      return this.getDataset(this.people, 'eyeColor');
     },
     ages() {
       if (!this.dataExists) return null;
@@ -145,7 +145,7 @@ export default {
           { min: 51, max: 999, count: 0, label: '51 +' },
         ];
 
-        Object.values(this.people).forEach((person) => {
+        this.people.forEach((person) => {
           const { age } = person;
 
           counterInitial.forEach((ageGroup) => {
@@ -165,18 +165,18 @@ export default {
 
         return dataset;
       } else {
-        return this.getDataset('age');
+        return this.getDataset(this.people, 'age');
       }
     },
     pets() {
       if (!this.dataExists) return null;
 
-      return this.getDataset('preferences.pet');
+      return this.getDataset(this.people, 'preferences.pet');
     },
     fruits() {
       if (!this.dataExists) return null;
 
-      return this.getDataset('preferences.fruit');
+      return this.getDataset(this.people, 'preferences.fruit');
     },
   },
   methods: {

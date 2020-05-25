@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    people: {},
+    people: [],
   },
   mutations: {
     SET_PEOPLE: (state, payload) => {
