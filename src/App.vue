@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" class="shadow-lg sticky top-0 mb-6 bg-white">
+      <router-link to="/">Charts</router-link> |
+      <router-link to="/data">Data</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+// Helpers
+import axios from 'axios';
+import { mapActions } from 'vuex';
+
+export default {
+  name: 'App',
+  created() {
+    axios.get('https://updates.suade.org/files/people.json').then((response) => {
+      this.setPeople(response.data);
+    });
+  },
+  methods: {
+    ...mapActions(['setPeople']),
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -28,5 +46,9 @@
       color: #42b983;
     }
   }
+}
+
+.btn {
+  @apply py-2 px-4 rounded bg-green text-white;
 }
 </style>

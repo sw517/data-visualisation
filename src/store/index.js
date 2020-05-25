@@ -17,6 +17,8 @@ export default new Vuex.Store({
       commit('SET_PEOPLE', payload);
     },
   },
-  modules: {
+  getters: {
+    people: (state) => state.people,
   },
+  modules: {},
 });
