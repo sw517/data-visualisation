@@ -1,6 +1,6 @@
 <template>
   <div class="bar-chart">
-    <canvas ref="canvas" height="300" width="300" />
+    <canvas ref="canvas" height="260" width="260" />
   </div>
 </template>
 

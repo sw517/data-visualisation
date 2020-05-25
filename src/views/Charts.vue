@@ -4,8 +4,8 @@
       <button class="btn" @click="toggleChartType">Toggle Chart Type</button>
     </div>
     <div class="container px-4 mx-auto">
-      <div class="flex flex-wrap -mx-4 justify-center">
-        <div class="px-4 mb-6">
+      <div class="row">
+        <div class="column">
           <span class="text-xl">Gender</span>
           <DynamicChart
             v-if="genders && Object.keys(genders).length"
@@ -21,7 +21,7 @@
             ]"
           />
         </div>
-        <div class="px-4 mb-6">
+        <div class="column">
           <span class="text-xl">Eye Color</span>
           <DynamicChart
             v-if="eyeColors && Object.keys(eyeColors).length"
@@ -53,7 +53,7 @@
             ]"
           />
         </div>
-        <div class="px-4 mb-6">
+        <div class="column">
           <span class="text-xl">Preferred Pet</span>
           <DynamicChart
             v-if="pets && Object.keys(pets).length"
@@ -69,7 +69,7 @@
             ]"
           />
         </div>
-        <div class="px-4 mb-6">
+        <div class="column">
           <span class="text-xl">Preferred Fruit</span>
           <DynamicChart
             v-if="fruits && Object.keys(fruits).length"

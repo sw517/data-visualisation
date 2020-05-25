@@ -51,4 +51,16 @@ export default {
 .btn {
   @apply py-2 px-4 rounded bg-green text-white;
 }
+
+.container {
+  @apply px-4;
+}
+
+.row {
+  @apply flex flex-wrap -mx-4 justify-center;
+}
+
+.column {
+  @apply px-4 mb-6;
+}
 </style>
