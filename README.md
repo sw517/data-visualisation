@@ -1,5 +1,7 @@
 # data-visualisation
 
+Deployed to https://admiring-keller-aa33d9.netlify.app/#/
+
 ## Project setup
 ```
 npm install
