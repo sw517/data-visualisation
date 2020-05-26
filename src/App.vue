@@ -49,11 +49,11 @@ export default {
 }
 
 .btn {
-  @apply py-2 px-4 rounded bg-green text-white;
+  @apply py-2 px-4 rounded bg-accent text-white;
 }
 
 .container {
-  @apply px-4;
+  @apply p-4 mx-auto;
 }
 
 .row {

@@ -1,18 +1,15 @@
 // Customised Theme for Tailwind CSS
 module.exports = {
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: ['./public/**/*.html', './src/**/*.vue'],
+  },
   theme: {
-    screens: {
-      sm: '640px',
-      md: '980px',
-      lg: '1200px',
-      xl: '1600px',
-    },
     extend: {
       colors: {
-        green: '#42b983',
+        accent: '#42b983',
+        'accent-light': '#bee5d2',
       },
     },
   },
-  variants: {},
-  plugins: [],
 };

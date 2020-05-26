@@ -1,9 +1,14 @@
 <template>
-  <main class="home">
-    <div class="container text-center p-4 mx-auto">
-      <button class="btn" @click="toggleChartType">Toggle Chart Type</button>
+  <main class="charts">
+    <div class="container text-center">
+      <div class="row">
+        <div class="column">
+          <h1 class="mb-4 text-xl">Charts</h1>
+          <button class="btn" @click="toggleChartType">Toggle Chart Type</button>
+        </div>
+      </div>
     </div>
-    <div class="container px-4 mx-auto">
+    <div class="container">
       <div class="row">
         <div class="column">
           <span class="text-xl">Gender</span>
@@ -104,10 +109,10 @@ import randomColor from '@/utils/randomColor';
 // Mixins
 import getDataset from '@/mixins/getDataset';
 // Components
-import DynamicChart from '@/components/charts/DynamicChart.vue';
+import DynamicChart from '@/components/DynamicChart.vue';
 
 export default {
-  name: 'Home',
+  name: 'ChartsView',
   components: {
     DynamicChart,
   },
@@ -141,7 +146,7 @@ export default {
         const backgroundColor = [];
         const data = [];
         const labels = [];
-        const counterInitial = [
+        const counter = [
           { min: 0, max: 20, count: 0, label: 'Under 21' },
           { min: 21, max: 25, count: 0 },
           { min: 26, max: 30, count: 0 },
@@ -155,14 +160,14 @@ export default {
         this.people.forEach((person) => {
           const { age } = person;
 
-          counterInitial.forEach((ageGroup) => {
+          counter.forEach((ageGroup) => {
             if (Number(age) >= ageGroup.min && Number(age) <= ageGroup.max) {
               ageGroup.count += 1;
             }
           });
         });
 
-        counterInitial.forEach((ageGroup) => {
+        counter.forEach((ageGroup) => {
           data.push(ageGroup.count);
           labels.push(ageGroup.label || `${ageGroup.min} - ${ageGroup.max}`);
           backgroundColor.push(randomColor());
