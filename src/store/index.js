@@ -12,7 +12,18 @@ export default new Vuex.Store({
       Vue.set(state, 'people', payload);
     },
     SET_PERSON_VALUE: (state, { index, key, value }) => {
-      Vue.set(state.people[index], key, value);
+      /**
+       * If key contains dot notation, split the key to
+       * find the correct path to the object.
+       */
+      if (key.split('.').length > 1) {
+        const splitKey = key.split('.');
+        const parentKey = splitKey[0];
+        const keyToSet = splitKey[splitKey.length - 1];
+        Vue.set(state.people[index][parentKey], keyToSet, value);
+      } else {
+        Vue.set(state.people[index], key, value);
+      }
     },
   },
   actions: {
