@@ -10,7 +10,7 @@
         <th>Preferred Fruit</th>
       </thead>
       <transition-group tag="tbody" name="list-swap">
-        <tr v-for="(person, index) in cPeople" :key="person.name">
+        <tr v-for="(person, index) in cPeople" :key="person._id">
           <td>
             <input
               :value="person.name"
