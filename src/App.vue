@@ -16,7 +16,7 @@ import { mapActions } from 'vuex';
 export default {
   name: 'App',
   created() {
-    axios.get('https://updates.suade.org/files/people.json').then((response) => {
+    axios.get('/people.json').then((response) => {
       this.setPeople(response.data);
     });
   },
